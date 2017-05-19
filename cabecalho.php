@@ -8,8 +8,11 @@ require_once("mostra-alerta.php"); ?>
     <meta charset="utf-8">
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/loja.css" rel="stylesheet" />
+   
 </head>
 <body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,6 +20,12 @@ require_once("mostra-alerta.php"); ?>
             </div>
             <div>
                 <ul class="nav navbar-nav">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Projeto<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Consultar</a></li>
+                                  <li><a href="projeto-formulario.php">Cadastrar</a></li>
+                                </ul>
+                      </li>
                     <li><a href="funcionario-formulario.php">Adicionar Funcionário</a></li>
                     <li><a href="produto-lista.php">Produtos</a></li>
                     <li><a href="sobre.php">Sobre</a></li>
