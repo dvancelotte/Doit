@@ -16,18 +16,23 @@ require_once("mostra-alerta.php"); ?>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">Minha Loja</a>
+                <a href="index.php" class="navbar-brand">Do it</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Projeto<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Consultar</a></li>
-                                  <li><a href="projeto-formulario.php">Cadastrar</a></li>
-                                </ul>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Projeto<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Consultar</a></li>
+                          <li><a href="projeto-formulario.php">Cadastrar</a></li>
+                        </ul>
                       </li>
-                    <li><a href="funcionario-formulario.php">Adicionar Funcionário</a></li>
-                    <li><a href="produto-lista.php">Produtos</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Funcionario<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Consultar</a></li>
+                          <li><a href="funcionario-formulario.php">Cadastrar</a></li>
+                        </ul>
+                      </li>
+                    <li><a href="sobre.php">Minha conta</a></li>
                     <li><a href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
