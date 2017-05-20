@@ -1,5 +1,5 @@
 body {
-    padding-top: 50px;
+    padding-top: 10px;
     background-color: #ddd;
 }
 
@@ -21,30 +21,58 @@ body {
     border: none !important;
 }
 
-h1{
-    color: #2C3E50;
-}
-
-table {
+#tableFuncionario{
     border-radius: 50px;
-    background-color: #6E248D;
+    background-color: #f9f9f9;
     
-    color: whitesmoke;
+    color: black;
     
     padding: 100px;
 }
-td {
+
+#title{
+    text-align: center;
+    
+    background-color: #BA1C58;
+    
+    color: white;
+    
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.funcionario-div td {
     border:none;
-    
     text-align:right;
-    
     padding: 20px !important;
 }
 
-tr{
+.funcionario-div tr{
    border: none;
 }
 
 .funcionario-div span{
     color: red;
+}
+
+/*Funcionario Consulta*/
+
+#funcionario-consulta thead{
+    background-color: #BA1C58;
+    color: white;
+}
+
+#funcionario-consulta th, #funcionario-consulta td{
+    text-align: center;
+}
+
+#funcionario-consulta .table{
+    margin-top: 100px;
+}
+
+#funcionario-consulta table{
+    text-align: center; 
+}
+
+#funcionario-consulta .table-striped > tbody > tr:nth-child(2n) > td, #funcionario-consulta .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: white;
 }

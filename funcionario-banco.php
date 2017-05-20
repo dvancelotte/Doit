@@ -2,15 +2,17 @@
 require_once("conecta.php");
 
 function listaFuncionario($conexao) {
-    $funcionarios = array();
-    $resultado = mysqli_query($conexao, "select f.*, s.tipo as cod_status from funcionarios as p join status_func as s on f.cod_status = s.cod_status");
-    $resultado = mysqli_query($conexao, "select * from funcionarios");
+    $resultado = mysqli_query($conexao, "SELECT f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF 
+	WHERE TF.id_tipo_funcionario = f.fk_tipo_funcionario order by f.nome desc;");
+    $rows = array();
     
-    while($produto = mysqli_fetch_assoc($resultado)) {
-        array_push($funcionarios, $funcionario);
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
     }
-
-    return $funcionarios;
+    return json_encode($rows);
 }
 
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {

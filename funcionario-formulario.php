@@ -27,9 +27,10 @@ $tipo_funcionario = listaTipos($conexao, "tipo_funcionario");
 
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 funcionario-div">
-        <h1>Cadastro Funcionário</h1>
+        
         <form action="funcionario-cadastro.php" onclick="return validar()" method="post">
-            <table class="table funcionario">
+            <table class="table funcionario" id="tableFuncionario">
+                <tr><td colspan="2" id="title"><h1>Cadastro Funcionário</h1></td></tr>
                 <?php include("funcionario-formulario-base.php"); ?>
                 <tr>
                     <td></td>
