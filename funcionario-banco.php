@@ -13,10 +13,11 @@ function listaFuncionario($conexao) {
     return $funcionarios;
 }
 
-function insereFuncionario($conexao, $nome_func, $email, $senha, $cod_status) {
+function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);
-    $query = "insert into funcionarios (nome_func, email, senha, cod_status)
-        values ('{$nome_func}', '{$email}', '{$senhaMD5}', {$cod_status})";
+    $query = "INSERT INTO funcionario (nome, email, senha, fk_tipo_funcionario)
+            VALUE ('{$nome_func}', '{$email}', '{$senhaMd5}',{$tipo_usuario})";
+    echo($query);
     return mysqli_query($conexao, $query);
 }
 /*

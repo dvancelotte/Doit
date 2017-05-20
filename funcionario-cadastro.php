@@ -1,18 +1,21 @@
 <?php require_once("cabecalho.php");
-      require_once("banco-funcionario.php");
+      require_once("funcionario-banco.php");
       require_once("logica-usuario.php");
 
 verificaUsuario();
 
-$nome_func = $_POST["nome_func"];
+$nome_func = $_POST["nome"];
 $email = $_POST["email"];
 $senha = $_POST["senha"];
-$cod_status = $_POST['cod_status'];
+$tipo_usuario = $_POST['tipo_usuario'];
 
 
-if(insereFuncionario($conexao, $nome_func, $email, $senha, $cod_status)) { ?>
+if(insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario)) { ?>
     <p class="text-success">O funcionario <?= $nome_func; ?>, adicionado no sistema!</p>
-<?php } else {
+    <?php include("funcionario-formulario-base.php"); ?>
+<?php } 
+
+else {
     $msg = mysqli_error($conexao);
 ?>
     <p class="text-danger">O funcionário <?= $nome; ?> não foi adicionado no sistema: <?= $msg ?></p>

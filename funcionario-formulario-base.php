@@ -1,31 +1,41 @@
 <tr>
-    <td>Nome</td>
-    <td><input class="form-control" type="text" name="nome" value="<?=$funcionario['nome_func']?>" /></td>
+    <td class="col-md-3">Nome: <span>*</span></td>
+    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['nome']?>" /></td>
 </tr>
 
 <tr>
-    <td>E-mail</td>
-    <td><input class="form-control" type="email" name="email" value="<?=$funcionario['email']?>">
+    <td class="col-md-3">E-mail: <span>*</span></td>
+    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$funcionario['email']?>">
     </td>
 </tr>
 
 <tr>
-    <td>Senha</td>
-    <td><input class="form-control" type="password" name="senha" value="<?=$funcionario['senha']?>" /></td>
+    <td class="col-md-3">Senha: <span>*</span></td>
+    <td class="col-md-10"><input class="form-control" type="password" name="senha" id ="senha" value="<?=$funcionario['senha']?>" /></td>
+</tr>
+<tr>
+    <td class="col-md-3">Confirme a senha: <span>*</span></td>
+    <td class="col-md-10"><input class="form-control" type="password" name="Csenha" id="Csenha" onblur="validaSenha()"/></td>
 </tr>
 
 <tr>
-    <td>Usuário</td>
-    <td>
-        <select class="form-control" name="tipo_usuario">
-            <?php foreach($tipo_funcs as $tipo_func) :
-                $esseEhoTipo = $funcionario['cod_status'] == $tipo_func['cod_status'];
-                $selecao = $esseEhoTipo ? "selected='selected'" : "";
+    <td class="col-md-3">Tipo Usuário: <span>*</span></td>
+    <td class="col-md-10">
+        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['cod_status']?>">
+            <option value="-1">Selecionar</option>
+            <?php
+                echo "<script>tipo_combo = $tipo_funcionario;
+                               $.each(tipo_combo, function (i, item) {
+                                    $('#tipo_usuario').append($('<option>', { 
+                                        value: item.id_tipo_funcionario,
+                                        text : item.descricao 
+                                    }));
+                                }); 
+                              
+               </script>";
             ?>
-                <option value="<?=$tipo_func['cod_status']?>" <?=$selecao?>>
-                    <?=$tipo_func['tipo']?>
-                </option>
-            <?php endforeach ?>
+
         </select>
     </td>
 </tr>
+          

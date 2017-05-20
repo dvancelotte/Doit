@@ -1,0 +1,50 @@
+body {
+    padding-top: 50px;
+    background-color: #ddd;
+}
+
+.principal {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.funcionario-div{
+    margin-top: 20px;
+    margin-bottom: 20px;    
+}
+
+.funcionario{
+    margin-top: 50px;
+}
+
+.borderless table tr{
+    border: none !important;
+}
+
+h1{
+    color: #2C3E50;
+}
+
+table {
+    border-radius: 50px;
+    background-color: #6E248D;
+    
+    color: whitesmoke;
+    
+    padding: 100px;
+}
+td {
+    border:none;
+    
+    text-align:right;
+    
+    padding: 20px !important;
+}
+
+tr{
+   border: none;
+}
+
+.funcionario-div span{
+    color: red;
+}

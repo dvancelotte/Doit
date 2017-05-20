@@ -7,7 +7,7 @@ require_once("mostra-alerta.php"); ?>
     <title>Minha loja</title>
     <meta charset="utf-8">
     <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/loja.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
    
 </head>
 <body>
@@ -28,7 +28,7 @@ require_once("mostra-alerta.php"); ?>
                       </li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Funcionario<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Consultar</a></li>
+                          <li><a href="funcionario-consulta.php">Consultar</a></li>
                           <li><a href="funcionario-formulario.php">Cadastrar</a></li>
                         </ul>
                       </li>
