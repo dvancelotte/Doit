@@ -1,5 +1,5 @@
 <?php require_once("cabecalho.php");
-      require_once("banco-categoria.php");
+      require_once("funcionario-banco.php");
       require_once("logica-usuario.php");
 
 verificaUsuario();
@@ -7,7 +7,9 @@ verificaUsuario();
 $produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
 $usado = "";
 
-$categorias = listaCategorias($conexao);
+$gerentes = listaFuncionarioSemProjeto($conexao, "GERENTE");
+$colaboradores = listaFuncionarioSemProjeto($conexao, "COLABORADOR");
+
 ?>
 
 <h1>Novo Projeto</h1>
