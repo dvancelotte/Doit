@@ -4,7 +4,7 @@
 
 verificaUsuario();
 
-$funcionario = array("nome" => "", "email" => "", "senha" => "", "cod_status" => "");
+$funcionario = array("nome" => "", "email" => "", "senha" => "", "tipo_usuario" => "");
 
 $tipo_funcionario = listaTipos($conexao, "tipo_funcionario");
 ?>
