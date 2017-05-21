@@ -4,7 +4,7 @@ require_once("mostra-alerta.php"); ?>
 
 <html>
 <head>
-    <title>Minha loja</title>
+    <title>Do It</title>
     <meta charset="utf-8">
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />

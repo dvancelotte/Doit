@@ -16,14 +16,13 @@ $tipo_funcionario = listaTipos($conexao, "tipo_funcionario");
        CSenha = document.getElementById('Csenha');
        Senha = document.getElementById('senha');
        if (CSenha.value != Senha.value) {
-           alert("Senhas diferentes. \n Por gentliza insira a senha novamente"); 
+           alert("Senhas diferentes. \n Por gentileza insira a senha novamente"); 
            Senha.value = null;
            CSenha.value = null;
            Senha.focus();
        }
     }
  </script>
-
 
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 funcionario-div">

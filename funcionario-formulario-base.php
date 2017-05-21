@@ -21,14 +21,14 @@
 <tr>
     <td class="col-md-3">Tipo Usuário: <span>*</span></td>
     <td class="col-md-10">
-        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['cod_status']?>">
+        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['COD_STATUS']?>">
             <option value="-1">Selecionar</option>
             <?php
                 echo "<script>tipo_combo = $tipo_funcionario;
                                $.each(tipo_combo, function (i, item) {
                                     $('#tipo_usuario').append($('<option>', { 
-                                        value: item.id_tipo_funcionario,
-                                        text : item.descricao 
+                                        value: item.ID_TIPO_FUNCIONARIO,
+                                        text : item.DESCRICAO 
                                     }));
                                 }); 
                               
