@@ -17,7 +17,7 @@ $colaboradores = listaFuncionarioSemProjeto($conexao, "COLABORADOR");
     <table class="table">
 
         <?php include("projeto-formulario-base.php"); ?>
-
+        
         <tr>
             <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
         </tr>
