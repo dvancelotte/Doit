@@ -10,28 +10,40 @@ $email = $_POST["email"];
 $senha = $_POST["senha"];
 $tipo_usuario = $_POST['tipo_usuario'];
 
-
-if($nome_func == "" || $email == "" || $senha == "" || $tipo_usuario =="Selecionar"){?>
+if($nome_func == "" || $email == "" || $senha == "" || $tipo_usuario =="-1"){?>
     <p class="text-danger">Campos obrigatórios não foram inseridos corretamente !</p>
+    <?php include("funcionario-formulario.php"); ?>
 <?php
     }
 
 else{
     if(verificaFuncionarioExistente($conexao, $email) == false){
         if(insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario)) { ?>
-            <p class="text-success">O funcionario <?= $nome_func; ?>, adicionado no sistema!</p>
-            <php include("funcionario-formulario-base.php"); ?>
+            <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                O funcionário <strong><?= $nome_func; ?></strong> , foi adicionado no sistema!
+            </div>
+            <?php include("funcionario-consulta.php"); ?>
     <?php } 
 
         else {
             $msg = mysqli_error($conexao);
         ?>
-            <p class="text-danger">O funcionário <?= $nome; ?> não foi adicionado no sistema: <?= $msg ?></p>
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                O funcionário <?= $nome; ?> não foi adicionado no sistema: <?= $msg ?>. Entre em contato com o administrador.
+            </div>
+            <?php include("funcionario-consulta.php"); ?>
+            <p class="text-danger"></p>
         <?php
         }
     }
     else{ ?>
-        <p class="text-danger">Funcionário existente !!!</p>
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                Não foi possível completar a operação. Funcionário existente no sistema.
+            </div>
+            <?php include("funcionario-consulta.php"); ?>
     <?php }
 }
 ?>

@@ -1,31 +1,27 @@
 <tr>
     <td class="col-md-3">Nome: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['nome']?>" /></td>
+    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$nome_func?>" /></td>
 </tr>
 
 <tr>
     <td class="col-md-3">E-mail: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$funcionario['email']?>">
+    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$email?>">
     </td>
 </tr>
 
 <tr>
     <td class="col-md-3">Senha: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="password" name="senha" id ="senha" value="<?=$funcionario['senha']?>" /></td>
+    <td class="col-md-10"><input class="form-control" type="password" name="senha" id ="senha" value="<?=$senha?>" /></td>
 </tr>
 <tr>
     <td class="col-md-3">Confirme a senha: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="password" name="Csenha" id="Csenha" onblur="validaSenha()"/></td>
+    <td class="col-md-10"><input class="form-control" type="password" name="Csenha" id="Csenha" onblur="validaSenha()" value="<?=$senha?>"/></td>
 </tr>
 
 <tr>
     <td class="col-md-3">Cargos: <span>*</span></td>
     <td class="col-md-10">
-<<<<<<< HEAD
-        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['COD_STATUS']?>">
-=======
-        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['tipo_usuario']?>">
->>>>>>> origin/master
+        <select class="form-control" name="tipo_usuario" id="tipo_usuario">
             <option value="-1">Selecionar</option>
             <?php
                 echo "<script>tipo_combo = $tipo_funcionario;
@@ -36,7 +32,6 @@
                                         text : item.DESCRICAO 
                                     }));
                                 }); 
-                              
                </script>";
             ?>
 
