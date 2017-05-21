@@ -42,11 +42,14 @@ echo "<script>consulta = $funcionario ;
                     var nome = linha.insertCell(0);
                     var email = linha.insertCell(1);
                     var tipousuario = linha.insertCell(2);
+                    var botaoAlterar = linha.insetCell(3);
                     
                     
                     nome.innerHTML = item.nome;
                     email.innerHTML = item.email;
                     tipousuario.innerHTML = item.descricao;
+                    
+   
                 }); 
 
 </script>";?>
