@@ -1,8 +1,8 @@
-<?php
+    <?php
 require_once("conecta.php");
 
 function listaFuncionario($conexao) {
-    $resultado = mysqli_query($conexao, "SELECT f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF 
+    $resultado = mysqli_query($conexao, "SELECT f.id_funcionario, f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF 
 	WHERE TF.id_tipo_funcionario = f.fk_tipo_funcionario order by f.nome desc;");
     $rows = array();
     
@@ -22,12 +22,13 @@ function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) 
     return mysqli_query($conexao, $query);
 }
 
-/*function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
-    $senhaMD5 = md5($senha)
-    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}',
-            TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = '{$id_funcionario}'";
-    return mysqli_query($conexao, $query);
-}*/
+//function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
+//    $senhaMD5 = md5($senha)
+//    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}',
+//            TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = '{$id_funcionario}'";
+//    return mysqli_query($conexao, $query);
+//}
+
 /*
 function removeProduto($conexao, $id) {
     $query = "delete from produtos where id = {$id}";
