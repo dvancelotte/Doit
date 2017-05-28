@@ -1,10 +1,10 @@
 <tr>
     <td>Nome</td>
-    <td><input class="form-control" type="text" name="nome" value="<?=$produto['nome']?>" /></td>
+    <td><input class="form-control" type="text" name="nome" value="<?=$projeto['nome']?>" /></td>
 </tr>
 <tr>
     <td>Descrição</td>
-    <td><textarea class="form-control" name="descricao"><?=$produto['descricao']?></textarea></td>
+    <td><textarea class="form-control" name="descricao"><?=$projeto['descricao']?></textarea></td>
 </tr>
 
 <tr>
@@ -30,7 +30,7 @@
 <tr>
     <td>Colaboradores disponíveis</td>
     <td>
-        <select class="form-control" name="colaborador" id="colaborador" value="<?=$colaborador['colaborador']?>" multiple>
+        <select class="form-control" name="colaborador[]" id="colaborador" value="<?=$colaborador['colaborador']?>" multiple>
         <?php
                 echo "<script>combo_colaborador = $colaboradores;
                                $.each(combo_colaborador, function (i, item) {

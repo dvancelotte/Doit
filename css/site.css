@@ -17,11 +17,24 @@ body {
     margin-top: 50px;
 }
 
+.projeto{
+    margin-top: 50px;   
+}
+
 .borderless table tr{
     border: none !important;
 }
 
 #tableFuncionario{
+    border-radius: 50px;
+    background-color: #f9f9f9;
+    
+    color: black;
+    
+    padding: 100px;
+}
+
+#tableProjeto{
     border-radius: 50px;
     background-color: #f9f9f9;
     
