@@ -10,12 +10,12 @@ $funcionario = listaFuncionario($conexao, "funcionario");
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 funcionario-consulta-div">
         <h1>Consulta Funcionários</h1>
-            <!--<div class="col-md-11">
+            <div class="col-md-11">
                 <input class="form-control" type="text" name="pesquisa" id="pesquisa" placeholder="Digite um nome para pesquisar"/>
             </div>
             <div class="col-md-1">
                 <button class="btn btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-            </div>-->
+            </div>
         <div id="funcionario-consulta">
             <table class="table table-striped" id="tableConsulta" >
               <thead>
@@ -52,7 +52,7 @@ echo "<script>consulta = $funcionario ;
                 
                 function alterarFuncionario(idfuncionario){
                     var currentLocation = window.location.href;
-                    currentLocation = currentLocation.replace('funcionario-consulta.php#','funcionario-altera-formulario.php?id_funcionario=');
+                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?id_funcionario=');
                     currentLocation += idfuncionario;
                     
                     window.open(currentLocation,'_self');
