@@ -1,11 +1,11 @@
 <tr>
     <td class="col-md-3">Nome: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$nome_func?>" /></td>
+    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['nome']?>" /></td>
 </tr>
 
 <tr>
     <td class="col-md-3">E-mail: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$email?>">
+    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$funcionario['email']?>">
     </td>
 </tr>
 

@@ -52,7 +52,7 @@ echo "<script>consulta = $funcionario ;
                 
                 function alterarFuncionario(){
                     var currentLocation = window.location.href;
-                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera.php');
+                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?id_funcionario=');
                     
                     window.open(currentLocation,'_self');
                 }

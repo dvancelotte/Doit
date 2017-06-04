@@ -22,18 +22,12 @@ function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) 
     return mysqli_query($conexao, $query);
 }
 
-//function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
-//    $senhaMD5 = md5($senha)
-//    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}',
-//            TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = '{$id_funcionario}'";
-//    return mysqli_query($conexao, $query);
-//}
-
-/*
-function removeProduto($conexao, $id) {
-    $query = "delete from produtos where id = {$id}";
+function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
+    $senhaMD5 = md5($senha);
+    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}', TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = {$id_funcionario}";
     return mysqli_query($conexao, $query);
-}*/
+}
+
 
 function buscaFuncionario($conexao, $id_funcionario) {
     $query = "select * from funcionario where id_funcionario = {$id_funcionario}";
@@ -41,6 +35,12 @@ function buscaFuncionario($conexao, $id_funcionario) {
     return mysqli_fetch_assoc($resultado);
 }
 
+
+/*
+function removeFuncionario($conexao, $id_funcionario) {
+    $query = "delete from funcionario where id_funcionario = {$id_funcionario}";
+    return mysqli_query($conexao, $query);
+}*/
 
 function verificaFuncionarioExistente($conexao, $email) {
     $query = "select count(ID_FUNCIONARIO) AS numeroRegistros from funcionario WHERE EMAIL = '{$email}';";
