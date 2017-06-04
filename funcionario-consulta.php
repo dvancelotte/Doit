@@ -47,12 +47,13 @@ echo "<script>consulta = $funcionario ;
                     nome.innerHTML = item.nome;
                     email.innerHTML = item.email;
                     tipousuario.innerHTML  = item.descricao;
-                    botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario();\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
                 }); 
                 
-                function alterarFuncionario(){
+                function alterarFuncionario(idfuncionario){
                     var currentLocation = window.location.href;
                     currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?id_funcionario=');
+                    currentLocation += idfuncionario;
                     
                     window.open(currentLocation,'_self');
                 }
