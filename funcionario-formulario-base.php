@@ -1,5 +1,6 @@
 <tr>
     <td class="col-md-3">Nome: <span>*</span></td>
+    echo $nome_func;
     <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['nome']?>" /></td>
 </tr>
 

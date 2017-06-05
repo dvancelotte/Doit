@@ -15,6 +15,7 @@ function listaFuncionario($conexao) {
     return json_encode($rows);
 }
 
+
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);
     $query = "INSERT INTO funcionario (nome, email, senha, fk_tipo_funcionario)
