@@ -24,6 +24,7 @@ $funcionario = listaFuncionario($conexao, "funcionario");
                     <th>E-mail</th>
                     <th>Cargo</th>
                     <th>#</th>
+                    <th>#</th>
                 </tr>
               </thead>
               <tbody id="tabela-consulta">
@@ -42,17 +43,27 @@ echo "<script>consulta = $funcionario ;
                     var email = linha.insertCell(1);
                     var tipousuario = linha.insertCell(2);
                     var botaoAlterar = linha.insertCell(3);
-                    
+                    var botaoRemover = linha.insertCell(4);
                     
                     nome.innerHTML = item.nome;
                     email.innerHTML = item.email;
                     tipousuario.innerHTML  = item.descricao;
                     botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
+                    
+                    botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
                 }); 
                 
                 function alterarFuncionario(idfuncionario){
                     var currentLocation = window.location.href;
                     currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?id_funcionario=');
+                    currentLocation += idfuncionario;
+                    
+                    window.open(currentLocation,'_self');
+                }
+                
+                function removerFuncionario(idfuncionario){
+                    var currentLocation = window.location.href;
+                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-remove.php?id_funcionario=');
                     currentLocation += idfuncionario;
                     
                     window.open(currentLocation,'_self');

@@ -1,12 +1,11 @@
 <tr>
     <td class="col-md-3">Nome: <span>*</span></td>
-    echo $nome_func;
-    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['nome']?>" /></td>
+    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()" value="<?=$funcionario['NOME']?>" /></td>
 </tr>
 
 <tr>
     <td class="col-md-3">E-mail: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$funcionario['email']?>">
+    <td class="col-md-10"><input class="form-control" type="email" name="email" value="<?=$funcionario['EMAIL']?>">
     </td>
 </tr>
 
@@ -23,7 +22,7 @@
     <td class="col-md-3">Cargos: <span>*</span></td>
     <td class="col-md-10">
 
-        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['tipo_usuario']?>">
+        <select class="form-control" name="tipo_usuario" id="tipo_usuario" value="<?=$funcionario['TIPO_USUARIO']?>">
 
             <option value="-1">Selecionar</option>
             <?php

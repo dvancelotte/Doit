@@ -15,7 +15,6 @@ function listaFuncionario($conexao) {
     return json_encode($rows);
 }
 
-
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);
     $query = "INSERT INTO funcionario (nome, email, senha, fk_tipo_funcionario)
@@ -37,11 +36,10 @@ function buscaFuncionario($conexao, $id_funcionario) {
 }
 
 
-/*
 function removeFuncionario($conexao, $id_funcionario) {
     $query = "delete from funcionario where id_funcionario = {$id_funcionario}";
     return mysqli_query($conexao, $query);
-}*/
+}
 
 function verificaFuncionarioExistente($conexao, $email) {
     $query = "select count(ID_FUNCIONARIO) AS numeroRegistros from funcionario WHERE EMAIL = '{$email}';";
