@@ -38,6 +38,8 @@ $funcionario = listaFuncionario($conexao, "funcionario");
 echo "<script>consulta = $funcionario ;
                var tabela = document.getElementById('tabela-consulta');
                $.each(consulta, function (i, item) {
+                    if(item.nome != 'desativado'){
+                    
                     var linha = tabela.insertRow(0);
                     var nome = linha.insertCell(0);
                     var email = linha.insertCell(1);
@@ -45,13 +47,14 @@ echo "<script>consulta = $funcionario ;
                     var botaoAlterar = linha.insertCell(3);
                     var botaoRemover = linha.insertCell(4);
                     
+                    
                     nome.innerHTML = item.nome;
                     email.innerHTML = item.email;
                     tipousuario.innerHTML  = item.descricao;
                     botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
                     
                     botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
-                }); 
+                }}); 
                 
                 function alterarFuncionario(idfuncionario){
                     var currentLocation = window.location.href;

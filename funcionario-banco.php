@@ -15,6 +15,29 @@ function listaFuncionario($conexao) {
     return json_encode($rows);
 }
 
+function pesquisaFuncionario($conexao, $nome) {
+    $resultado = mysqli_query($conexao, "SELECT f.id_funcionario, f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF 
+	WHERE f.nome like '%{$nome}%' and TF.id_tipo_funcionario = f.fk_tipo_funcionario order by f.nome desc;");
+    $rows = array();
+    
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
+    }
+    return json_encode($rows);
+}
+
+/*
+//Lista funcionários por nome
+function pesquisaFuncionario($conexao, $nome){
+    $query = "select * funcionario where nome like '%{$nome}%';";
+    $resultado = mysqli_query($conexao,$query);
+    return mysqli_fetch_assoc($resultado);
+    
+}*/
+
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);
     $query = "INSERT INTO funcionario (nome, email, senha, fk_tipo_funcionario)
@@ -24,7 +47,7 @@ function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) 
 
 function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMD5 = md5($senha);
-    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}', TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = {$id_funcionario}";
+    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}', FK_TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = {$id_funcionario}";
     return mysqli_query($conexao, $query);
 }
 
@@ -35,10 +58,16 @@ function buscaFuncionario($conexao, $id_funcionario) {
     return mysqli_fetch_assoc($resultado);
 }
 
-
+/*
 function removeFuncionario($conexao, $id_funcionario) {
     $query = "delete from funcionario where id_funcionario = {$id_funcionario}";
     return mysqli_query($conexao, $query);
+}*/
+
+function removeFuncionario($conexao, $id_funcionario){
+    $query = "update funcionario set nome = 'desativado', email = 'desativado{$id_funcionario}@desativado.com' where id_funcionario = {$id_funcionario};";
+    $resultado = mysqli_query($conexao,$query);
+    return mysqli_fetch_assoc($resultado);
 }
 
 function verificaFuncionarioExistente($conexao, $email) {

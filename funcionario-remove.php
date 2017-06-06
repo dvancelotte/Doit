@@ -3,5 +3,5 @@
 <?php
     $id_funcionario = $_GET['id_funcionario'];
     removeFuncionario($conexao,$id_funcionario);
-    header("Location:funcionario-consulta.php");
+    header('Location:http://localhost/doit/funcionario-consulta.php');
 ?>
