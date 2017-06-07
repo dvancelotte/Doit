@@ -31,7 +31,7 @@ function listaProjeto($conexao) {
     return json_encode($rows);
 }
 
-function removeFuncionario($conexao, $id_projeto) {
+function removeProjeto($conexao, $id_projeto) {
     $query = "delete from projeto where id_funcionario = {$id_projeto}";
     return mysqli_query($conexao, $query);
 }

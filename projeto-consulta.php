@@ -49,14 +49,14 @@ echo "<script>consulta = $projeto ;
                     nome.innerHTML = item.nome;
                     descricao.innerHTML = item.descricao;
                         
-                    botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoRemover.innerHTML = '<button id=item.id_projeto onclick=\"removerFuncionario('+item.id_projeto+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
                 }); 
                 
                 
-                function removerFuncionario(idfuncionario){
+                function removerFuncionario(idprojeto){
                     var currentLocation = window.location.href;
-                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-remove.php?id_funcionario=');
-                    currentLocation += idfuncionario;
+                    currentLocation = currentLocation.replace('projeto-consulta.php','projeto-remove.php?id_projeto=');
+                    currentLocation += idprojeto;
                     
                     window.open(currentLocation,'_self');
                 }
