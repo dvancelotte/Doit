@@ -26,6 +26,9 @@
 
             <option value="-1">Selecionar</option>
             <?php
+                if($id_tipo_funcionario == NULL){
+                    $id_tipo_funcionario = -1;
+                }
                 echo "<script>tipo_combo = $tipo_funcionario;
                         $.each(tipo_combo, function (i, item) {
                             console.log(item.ID_TIPO_FUNCIONARIO);
