@@ -2,14 +2,15 @@
       require_once("funcionario-banco.php");
       require_once("logica-usuario.php");
 
+$id_projeto = $_GET['id_projeto'];
+$nome = $_GET['nome'];
 verificaUsuario();
-if(!$funcionario)
-    $funcionario = listaFuncionario($conexao, "funcionario");
+
 ?>
 
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 projeto-div" id="projeto-div">
-        <h1 id="h1_consulta">#Nome Projeto#</h1>
+        <h1 id="h1_consulta"><?php echo htmlspecialchars($_GET['nome']) ?></h1>
         <div>
             <button type="button" class="btn btn-success group-btn">Criar tarefa</button>
             <button type="button" class="btn btn-info group-btn">Informações do projeto</button>

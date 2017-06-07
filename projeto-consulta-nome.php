@@ -1,5 +1,5 @@
 <?php require_once("cabecalho.php");
-      require_once("funcionario-banco.php");
+      require_once("projeto-banco.php");
       require_once("logica-usuario.php");
     
 
@@ -13,7 +13,7 @@ if($pesquisa == ""){?>
     }
 
 else{
-    if($funcionario = pesquisaNome($conexao, $pesquisa)){
+    if($projeto = pesquisaNomeProjeto($conexao, $pesquisa)){
         if ($projeto=="[]"){ ?>
         <div class="alert alert-danger alert-dismissable">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -22,6 +22,8 @@ else{
 <?php
         $projeto = "";
         }
+        echo "sofria";
+        echo $projeto;
         include("projeto-consulta.php");
     }
     else{

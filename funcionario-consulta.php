@@ -76,6 +76,7 @@ echo "<script>consulta = $funcionario ;
                 
                 function removerFuncionario(idfuncionario){
                     var currentLocation = window.location.href;
+                    currentLocation = currentLocation.replace('funcionario-consulta-nome.php','funcionario-remove.php?id_funcionario=');
                     currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-remove.php?id_funcionario=');
                     currentLocation += idfuncionario;
                     

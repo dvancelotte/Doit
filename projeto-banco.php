@@ -17,7 +17,7 @@ function insereEquipe($conexao, $id_projeto, $id_funcionario){
 
 
 function listaProjeto($conexao) {
-    $query = "SELECT nome, descricao FROM PROJETO ORDER BY nome DESC;";
+    $query = "SELECT nome, descricao, id_projeto FROM PROJETO ORDER BY nome DESC;";
     $resultado = mysqli_query($conexao, $query);
     $rows = array();
     
@@ -34,4 +34,17 @@ function listaProjeto($conexao) {
 function removeProjeto($conexao, $id_projeto) {
     $query = "delete from projeto where id_funcionario = {$id_projeto}";
     return mysqli_query($conexao, $query);
+}
+
+function pesquisaNomeProjeto($conexao, $nome) {
+    $resultado = mysqli_query($conexao, "SELECT nome, descricao, id_projeto FROM projeto  WHERE nome like '$nome%' order by nome desc;");
+    $rows = array();
+    
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
+    }
+    return json_encode($rows);
 }
