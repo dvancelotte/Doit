@@ -1,15 +1,15 @@
 <tr>
-    <td class="col-md-3">Nome: <span>*</span></td>
-    <td class="col-md-10"><input class="form-control" type="text" name="nome" onblur="validaNome()"  value="<?=$projeto['nome']?>" /></td>
+    <td>Nome</td>
+    <td><input class="form-control" type="text" name="nome" value="<?=$projeto['nome']?>" /></td>
 </tr>
 <tr>
-    <td class="col-md-3">Descrição:<span>*</span></td>
-    <td class="col-md-10"><textarea class="form-control" name="descricao"><?=$projeto['descricao']?></textarea></td>
+    <td>Descrição</td>
+    <td><textarea class="form-control" name="descricao"><?=$projeto['descricao']?></textarea></td>
 </tr>
 
 <tr>
-    <td class="col-md-3">Gerentes disponíveis:<span>*</span></td>
-    <td class="col-md-10">
+    <td>Gerentes disponíveis.</td>
+    <td>
         <select class="form-control" name="gerente" id="gerente" value="<?=$gerente['gerente']?>">
             <option value="-1">Selecionar</option>
             <?php
@@ -28,7 +28,7 @@
     </td>
 </tr>
 <tr>
-    <td>Colaboradores disponíveis:</td>
+    <td>Colaboradores disponíveis</td>
     <td>
         <select class="form-control" name="colaborador[]" id="colaborador" value="<?=$colaborador['colaborador']?>" multiple>
         <?php
@@ -46,4 +46,3 @@
 </select>       
     </td>
 </tr>
-    

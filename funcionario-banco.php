@@ -2,8 +2,21 @@
 require_once("conecta.php");
 
 function listaFuncionario($conexao) {
-    $resultado = mysqli_query($conexao, "SELECT f.id_funcionario, f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF 
+    $resultado = mysqli_query($conexao, "SELECT f.id_funcionario, f.nome, f.email , TF.descricao, TF.id_tipo_funcionario  FROM funcionario f, tipo_funcionario TF 
 	WHERE TF.id_tipo_funcionario = f.fk_tipo_funcionario order by f.nome desc;");
+    $rows = array();
+    
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
+    }
+    return json_encode($rows);
+}
+
+function listaTipoUsuario($conexao){
+    $resultado = mysqli_query($conexao, "SELECT id_tipo_funcionario, descricao FROM tipo_funcionario TF;");
     $rows = array();
     
     if($resultado){

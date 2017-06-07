@@ -5,6 +5,7 @@
 verificaUsuario();
 $funcionario = array("nome" => "", "email" => "", "senha" => "", "cod_status" => "");
 $funcionario = listaFuncionario($conexao, "funcionario");
+
 ?>
 
 <div class="contanier-fluid">
@@ -51,15 +52,18 @@ echo "<script>consulta = $funcionario ;
                     nome.innerHTML = item.nome;
                     email.innerHTML = item.email;
                     tipousuario.innerHTML  = item.descricao;
-                    botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+', '+item.id_tipo_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
                     
                     botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
                 }}); 
                 
-                function alterarFuncionario(idfuncionario){
+                function alterarFuncionario(idfuncionario, id_tipo_funcionario){
                     var currentLocation = window.location.href;
-                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?id_funcionario=');
-                    currentLocation += idfuncionario;
+                    currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?');
+                    
+                    var url = 'id_funcionario=' + idfuncionario + '&id_tipo_funcionario=' + id_tipo_funcionario;
+
+                    currentLocation += url;
                     
                     window.open(currentLocation,'_self');
                 }

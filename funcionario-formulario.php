@@ -33,7 +33,7 @@ $tipo_funcionario = listaTipos($conexao, "tipo_funcionario");
                 <?php include("funcionario-formulario-base.php"); ?>
                 <tr>
                     <td></td>
-                    <td align="right"><button class="btn btn btn-danger" type="submit">Cancelar</button> <button class="btn btn-primary" type="submit">Cadastrar</button></td>
+                    <td align="right"><button class="btn btn btn-danger" type="submit">Cancelar</button><button class="btn btn-primary" type="submit">Cadastrar</button></td>
                 </tr>
             </table>
         </form>

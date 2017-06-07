@@ -10,8 +10,8 @@
 ?>
 
 <div class="contanier-fluid">
-    <div class="col-md-9 col-md-offset-2 projeto-div">
-		<form action="projeto-cadastro.php" method="post">
+    <div class="col-md-9 col-md-offset-2 funcionario-div">
+		<form action="projeto-cadastro.php" onclick="return validar()" method="post">
 		    <table class="table" class="table funcionario" id="tableProjeto">
 		    	<tr><td colspan="2" id="title"><h1>Novo Projeto</h1></td></tr>
 
@@ -19,7 +19,8 @@
 
 		        <tr>
 		        	<td></td>
-		            <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
+		            <td align="right"><button class="btn btn btn-danger" type="submit">Cancelar</button> <button 
+		            class="btn btn-primary" type="submit">Cadastrar</button></td>
 		        </tr>
 		    </table>
 		</form>

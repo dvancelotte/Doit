@@ -27,14 +27,16 @@
             <option value="-1">Selecionar</option>
             <?php
                 echo "<script>tipo_combo = $tipo_funcionario;
-                               $.each(tipo_combo, function (i, item) {
-                                    console.log(item.ID_TIPO_FUNCIONARIO);
-                                    $('#tipo_usuario').append($('<option>', { 
-                                        value: item.ID_TIPO_FUNCIONARIO,
-                                        text : item.DESCRICAO 
-                                    }));
-                                }); 
-               </script>";
+                        $.each(tipo_combo, function (i, item) {
+                            console.log(item.ID_TIPO_FUNCIONARIO);
+                            if (item.ID_TIPO_FUNCIONARIO == ". $id_tipo_funcionario .") {
+
+                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO, selected: true }));
+                            } else {
+                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO }));
+                            }
+                        }); 
+                        </script>"
             ?>
 
         </select>
