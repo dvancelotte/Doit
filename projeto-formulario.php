@@ -4,8 +4,14 @@
 
 	verificaUsuario();
 
-	$gerentes = listaFuncionarioSemProjeto($conexao, "GERENTE");
-	$colaboradores = listaFuncionarioSemProjeto($conexao, "COLABORADOR");
+    if ($gerentes==NULL){
+    	echo $gerentes . 'test';
+		$gerentes = listaFuncionarioSemProjeto($conexao, "GERENTE");
+		echo $gerentes . 'test';
+    }
+    if($colaboradores == NULL){
+		$colaboradores = listaFuncionarioSemProjeto($conexao, "COLABORADOR");
+    }
 
 ?>
 
@@ -19,11 +25,12 @@
 
 		        <tr>
 		        	<td></td>
-		            <td align="right"><button class="btn btn btn-danger" type="submit">Cancelar</button> <button 
+		            <td align=	"right"><button class="btn btn btn-danger" type="submit">Cancelar</button> <button 
 		            class="btn btn-primary" type="submit">Cadastrar</button></td>
 		        </tr>
 		    </table>
 		</form>
+		<span>* Campos obrigatórios</span>
 	</div>
 </div>
 

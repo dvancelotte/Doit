@@ -31,6 +31,22 @@ function listaProjeto($conexao) {
     return json_encode($rows);
 }
 
+function verificaProjetoExistente($conexao, $nome_projeto){
+
+    $query = "select count(ID_PROJETO) AS numeroRegistros from projeto WHERE nome = '{$nome_projeto}';";
+    $resultado = mysqli_query($conexao,$query);
+    $numRegistros = mysqli_fetch_assoc($resultado);
+    $count = $numRegistros['numeroRegistros'];
+    
+    if($count > 0){
+        return true; //existe funcionario
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function removeProjeto($conexao, $id_projeto) {
     $query = "delete from projeto where id_funcionario = {$id_projeto}";
     return mysqli_query($conexao, $query);

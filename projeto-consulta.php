@@ -5,7 +5,7 @@
 verificaUsuario();
 if(!$projeto)
     $projeto = listaProjeto($conexao, "projeto");
- echo $projeto;
+
 ?>
 
 <div class="contanier-fluid">
