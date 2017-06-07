@@ -92,3 +92,15 @@ body {
 #funcionario-consulta .table-striped > tbody > tr:nth-child(2n) > td, #funcionario-consulta .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: white;
 }
+
+/* Projeto visao geral */
+
+#projeto-div .group-btn{
+    width: 30%;
+    display: inline-block!important;
+}
+
+#projeto-div h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

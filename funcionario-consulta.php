@@ -4,8 +4,6 @@
 
 verificaUsuario();
 
-$funcionario = array("nome" => "", "email" => "", "senha" => "", "cod_status" => "");
-$funcionario = listaFuncionario($conexao, "funcionario");
 
 if(!$funcionario)
     $funcionario = listaFuncionario($conexao, "funcionario");
