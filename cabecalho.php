@@ -22,7 +22,7 @@ require_once("mostra-alerta.php"); ?>
                 <ul class="nav navbar-nav">
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Projeto<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Consultar</a></li>
+                          <li><a href="projeto-consulta.php">Consultar</a></li>
                           <li><a href="projeto-formulario.php">Cadastrar</a></li>
                         </ul>
                       </li>
