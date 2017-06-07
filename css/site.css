@@ -68,6 +68,9 @@ body {
 }
 
 /*Funcionario Consulta*/
+#funcionario-consulta-div h1{
+    margin-bottom: 30px;
+}
 
 #funcionario-consulta thead{
     background-color: #BA1C58;

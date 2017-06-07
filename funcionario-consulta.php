@@ -3,20 +3,25 @@
       require_once("logica-usuario.php");
 
 verificaUsuario();
+
 $funcionario = array("nome" => "", "email" => "", "senha" => "", "cod_status" => "");
 $funcionario = listaFuncionario($conexao, "funcionario");
 
+if(!$funcionario)
+    $funcionario = listaFuncionario($conexao, "funcionario");
 ?>
 
 <div class="contanier-fluid">
-    <div class="col-md-9 col-md-offset-2 funcionario-consulta-div">
-        <h1>Consulta Funcionários</h1>
-            <div class="col-md-11">
-                <input class="form-control" type="text" name="pesquisa" id="pesquisa" placeholder="Digite um nome para pesquisar"/>
-            </div>
-            <div class="col-md-1">
-                <button class="btn btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-            </div>
+    <div class="col-md-9 col-md-offset-2 funcionario-consulta-div" id="funcionario-consulta-div">
+        <h1 id="h1_consulta">Consulta Funcionários</h1>
+            <form action="funcionario-consulta-nome.php" onclick="return validar()" method="post">
+                <div class="col-md-11">
+                    <input class="form-control" type="text" name="pesquisa" id="pesquisa" placeholder="Digite um nome para pesquisar"/>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </form>
         <div id="funcionario-consulta">
             <table class="table table-striped" id="tableConsulta" >
               <thead>
@@ -59,12 +64,15 @@ echo "<script>consulta = $funcionario ;
                 
                 function alterarFuncionario(idfuncionario, id_tipo_funcionario){
                     var currentLocation = window.location.href;
+
                     currentLocation = currentLocation.replace('funcionario-consulta.php','funcionario-altera-formulario.php?');
+                    currentLocation = currentLocation.replace('funcionario-consulta-nome.php','funcionario-altera-formulario.php?');
+                    currentLocation = currentLocation.replace('funcionario-cadastro.php','funcionario-altera-formulario.php?');
+
                     
                     var url = 'id_funcionario=' + idfuncionario + '&id_tipo_funcionario=' + id_tipo_funcionario;
 
                     currentLocation += url;
-                    
                     window.open(currentLocation,'_self');
                 }
                 
