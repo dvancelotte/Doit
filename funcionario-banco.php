@@ -60,7 +60,7 @@ function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) 
 
 function alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMD5 = md5($senha);
-    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}', FK_TIPO_FUNCIONARIO = {$tipo_funcionario} where ID_FUNCIONARIO = {$id_funcionario}";
+    $query = "UPDATE funcionario set NOME = '{$nome_func}', EMAIL = '{$email}', SENHA = '{$senhaMD5}', FK_TIPO_FUNCIONARIO = {$tipo_usuario} where ID_FUNCIONARIO = {$id_funcionario}";
     return mysqli_query($conexao, $query);
 }
 
