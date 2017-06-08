@@ -7,8 +7,11 @@ if($usuario == null) {
     $_SESSION["danger"] = "Usuário ou senha inválido.";
     header("Location: index.php");
 } else {
-    $_SESSION["success"] = "Usuário logado com sucesso.";
-    logaUsuario($usuario["email"]);
-    header("Location: index.php");
+    
+    logaUsuario($usuario["email"],$usuario["fk_tipo_funcionario"]);
+    if($_SESSION["usuario_tipo"] != 3)
+        header("Location: projeto-consulta.php");
+    else
+        echo "aloh primo";
 }
 die();
