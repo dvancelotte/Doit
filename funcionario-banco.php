@@ -105,7 +105,7 @@ function verificaFuncionarioExistente($conexao, $email) {
 function listaFuncionarioSemProjeto($conexao, $tipo_funcionario) {
     $resultado = mysqli_query($conexao, "select F.ID_FUNCIONARIO, F.NOME from   funcionario f, tipo_funcionario tf where tf.id_tipo_funcionario = f.fk_tipo_funcionario
         and f.id_funcionario not in (Select FK_FUNCIONARIO from funcionario_projeto)
-        and tf.descricao = '{$tipo_funcionario}';");
+        and tf.descricao = '{$tipo_funcionario}' and F.nome != 'desativado';");
     $rows = array();
 
     if($resultado){
