@@ -1,11 +1,11 @@
 <?php
 require_once("conecta.php");
 
-function insereProjeto($conexao, $nome_projeto, $descricao) {
+function insereProjeto($conexao, $nome_projeto, $descricao,$gerente) {
 
-    $query = "INSERT INTO projeto (nome, descricao)
-            VALUE ('{$nome_projeto}', '{$descricao}');";
-
+    $query = "INSERT INTO projeto (nome, descricao,gerente)
+            VALUE ('{$nome_projeto}', '{$descricao}', {$gerente});";
+    echo $query;
     return mysqli_query($conexao, $query);
 }
 
@@ -48,8 +48,14 @@ function verificaProjetoExistente($conexao, $nome_projeto){
 }
 
 function removeProjeto($conexao, $id_projeto) {
-    $query = "delete from projeto where id_funcionario = {$id_projeto}";
-    return mysqli_query($conexao, $query);
+    $queryFuncionarioProjeto = "delete from funcionario_projeto where fk_projeto = {$id_projeto};";
+    $resultado1= mysqli_query($conexao,$queryFuncionarioProjeto);
+    echo $queryFuncionarioProjeto;
+    if($resultado1){
+        $queryProjeto = "delete from projeto where id_projeto = {$id_projeto};";
+    }
+    
+    return mysqli_query($conexao, $queryProjeto);
 }
 
 function pesquisaNomeProjeto($conexao, $nome) {
@@ -63,4 +69,13 @@ function pesquisaNomeProjeto($conexao, $nome) {
               
     }
     return json_encode($rows);
+}
+
+function todaInformacaoProjeto($id_projeto){
+    $query = "";
+    $resultado = mysqli_query($query);
+    $projeto = array($resultado);
+    echo $resultado;
+    return mysqli_fetch_assoc($projeto);
+    
 }

@@ -16,7 +16,7 @@ if($nome == "" || $descricao == "" || $nome == "" || $gerente =="-1"){?>
 } else {
 	if(verificaProjetoExistente($conexao, $nome) == false){
 
-		if(insereProjeto($conexao, $nome, $descricao)){
+		if(insereProjeto($conexao, $nome, $descricao, $gerente)){
 			$message = "<p class=\"text-success\">O projeto [".$nome."] cadastrado com sucesso</p>";
 
 			$id_projeto = mysqli_insert_id($conexao);
