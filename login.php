@@ -12,6 +12,6 @@ if($usuario == null) {
     if($_SESSION["usuario_tipo"] != 3)
         header("Location: projeto-consulta.php");
     else
-        echo "aloh primo";
+        header("Location: funcionario-tarefas.php");
 }
 die();
