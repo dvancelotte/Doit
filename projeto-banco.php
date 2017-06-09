@@ -74,7 +74,7 @@ function pesquisaNomeProjeto($conexao, $nome) {
 function todaInformacaoProjeto($conexao, $id_projeto){
     $query = "select nome, descricao, gerente from projeto where id_projeto = {$id_projeto};";
     $resultado = mysqli_query($conexao, $query);
-    $projeto = array("nome" => "", "descricao" =>"", "gerente" => "");
+    $projeto = array();
     $projeto = mysqli_fetch_assoc($resultado);
     return json_encode($projeto);
 }
