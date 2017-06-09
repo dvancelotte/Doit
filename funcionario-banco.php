@@ -42,14 +42,6 @@ function pesquisaFuncionario($conexao, $nome) {
     return json_encode($rows);
 }
 
-/*
-//Lista funcionários por nome
-function pesquisaFuncionario($conexao, $nome){
-    $query = "select * funcionario where nome like '%{$nome}%';";
-    $resultado = mysqli_query($conexao,$query);
-    return mysqli_fetch_assoc($resultado);
-    
-}*/
 
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);

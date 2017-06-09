@@ -71,11 +71,10 @@ function pesquisaNomeProjeto($conexao, $nome) {
     return json_encode($rows);
 }
 
-function todaInformacaoProjeto($id_projeto){
-    $query = "";
-    $resultado = mysqli_query($query);
-    $projeto = array($resultado);
-    echo $resultado;
-    return mysqli_fetch_assoc($projeto);
-    
+function todaInformacaoProjeto($conexao, $id_projeto){
+    $query = "select nome, descricao, gerente from projeto where id_projeto = {$id_projeto};";
+    $resultado = mysqli_query($conexao, $query);
+    $projeto = array("nome" => "", "descricao" =>"", "gerente" => "");
+    $projeto = mysqli_fetch_assoc($resultado);
+    return json_encode($projeto);
 }
