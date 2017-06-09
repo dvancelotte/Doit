@@ -39,17 +39,13 @@ echo "<script>
             currentLocation = currentLocation.replace('projeto-visaogeral.php','projeto-informacao.php');
             window.open(currentLocation,'_self');
         }
-      </script>"
-?>
+        function incluirTarefa(id_projeto){
+            var currentLocation = window.location.href;
 
-echo "<script>               
-                function incluirTarefa(id_projeto){
-                    var currentLocation = window.location.href;
-
-                    currentLocation = currentLocation.replace('projeto-visaogeral.php','tarefa-formulario.php');
-                    
-                    window.open(currentLocation,'_self');
-                }
+            currentLocation = currentLocation.replace('projeto-visaogeral.php','tarefa-formulario.php');
+            
+            window.open(currentLocation,'_self');
+        }
          
 
 </script>";?>

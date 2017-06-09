@@ -4,7 +4,7 @@
 
 verificaUsuario();
 if(!$projeto)
-    $projeto = listaProjeto($conexao, "projeto");
+    $projeto = listaProjeto($conexao);
 
 ?>
 
@@ -62,16 +62,14 @@ echo "<script>consulta = $projeto ;
 
                     currentLocation = currentLocation.replace('projeto-consulta-nome.php','projeto-visaogeral.php?');
                     currentLocation = currentLocation.replace('projeto-consulta.php','projeto-visaogeral.php?');
-
+                    currentLocation = currentLocation.replace('tarefa-cadastro.php','projeto-visaogeral.php?');
                     
                     var url = 'id_projeto=' + idprojeto + '&nome=' + nome; 
 
                     currentLocation += url;
                     window.open(currentLocation,'_self');
                 }
-                
-                
-                
+                     
                 function removerFuncionario(idprojeto){
                     var currentLocation = window.location.href;
                     currentLocation = currentLocation.replace('projeto-consulta.php','projeto-remove.php?id_projeto=');

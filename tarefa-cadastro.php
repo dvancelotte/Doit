@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php");
+    <?php require_once("cabecalho.php");
       require_once("tarefa-banco.php");
       require_once("logica-usuario.php");
     
@@ -9,13 +9,15 @@ $titulo = $_POST["titulo"];
 $descricao = $_POST['descricao'];
 $id_projeto = $_POST['id_projeto'];
 $id_colaborador = $_POST['colaborador'];
-echo $id_colaborador;
 
 $status = buscaStatusTarefa($conexao);
 
-if($titulo == "" || $descricao == "" || $id_colaborador =="-1"){?>
+if($titulo == "" || $descricao == "" || $id_colaborador =="-1"){ ?>
     <p class="text-danger">Campos obrigatórios não foram inseridos corretamente !</p>
-    <?php include("tarefa-formulario.php"); ?>
+    <?php 
+        header('Location: /doit/tarefa-formulario.php?id_projeto='. $id_projeto . '&erro=TRUE');    
+    ?>
+
 <?php
     }
 
@@ -47,7 +49,7 @@ else{
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 Não foi possível completar a operação. Tarefa existente no sistema.
             </div>
-            <?php include("funcionario-consulta.php"); ?>
+            <?php include("projeto-consulta.php"); ?>
     <?php }
 }
 ?>

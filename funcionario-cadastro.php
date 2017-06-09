@@ -12,7 +12,9 @@ $tipo_usuario = $_POST['tipo_usuario'];
 
 if($nome_func == "" || $email == "" || $senha == "" || $tipo_usuario =="-1"){?>
     <p class="text-danger">Campos obrigatórios não foram inseridos corretamente !</p>
-    <?php include("funcionario-formulario.php"); ?>
+    
+    <?php header('Location:/funcionario-formulario.php');
+    ?>
 <?php
     }
 
