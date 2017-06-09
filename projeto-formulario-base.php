@@ -33,6 +33,7 @@
         <select class="form-control" name="colaborador[]" id="colaborador" value="<?=$colaborador['colaborador']?>" multiple>
         <?php
                 echo "<script>combo_colaborador = $colaboradores;
+                                console.log(combo_colaborador);
                                $.each(combo_colaborador, function (i, item) {
                                     console.log(item.ID_FUNCIONARIO);
                                     $('#colaborador').append($('<option>', { 
