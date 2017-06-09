@@ -4,7 +4,8 @@
 
 $id_projeto = $_GET['id_projeto'];
 $projeto = todaInformacaoProjeto($conexao, $id_projeto);
-echo $projeto;
+$gerente = gerenteDoProjeto($conexao, $id_projeto);
+colaboradoresPorProjeto($conexao, $id_projeto);
 
 ?>
 
@@ -19,7 +20,7 @@ echo $projeto;
 
 <tr>
     <td class="col-md-3">Gerente do Projeto:</td>
-    <td class="col-md-10"><input class="form-control" type="text" name="gerente" value="<?=$projeto['gerete']?>" /></td>
+    <td class="col-md-10"><input class="form-control" type="text" name="gerente" value="<?=$gerente['nome']?>" /></td>
                 
 </tr>
 <tr>

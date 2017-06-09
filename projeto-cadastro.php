@@ -22,7 +22,7 @@ if($nome == "" || $descricao == "" || $nome == "" || $gerente =="-1"){?>
 			$id_projeto = mysqli_insert_id($conexao);
 
 			//insercao do gerente
-			insereEquipe($conexao, $id_projeto, $gerente);
+			//insereEquipe($conexao, $id_projeto, $gerente);
 
 			//insercao dos colaboradores
 			foreach ($colaborador as $key => $value) {

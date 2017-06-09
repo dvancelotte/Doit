@@ -73,8 +73,25 @@ function pesquisaNomeProjeto($conexao, $nome) {
 
 function todaInformacaoProjeto($conexao, $id_projeto){
     $query = "select nome, descricao, gerente from projeto where id_projeto = {$id_projeto};";
+    
     $resultado = mysqli_query($conexao, $query);
     $projeto = array();
     $projeto = mysqli_fetch_assoc($resultado);
     return $projeto;
+}
+
+function gerenteDoProjeto($conexao, $id_projeto){
+    $query = "select f.nome from projeto p, funcionario f where id_projeto = {$id_projeto} and p.GERENTE = f.ID_FUNCIONARIO;";
+    $resultado = mysqli_query($conexao, $query);
+
+    return mysqli_fetch_assoc($resultado);
+}
+
+function colaboradoresPorProjeto($conexao, $id_projeto){
+    $query = "select f.nome from funcionario f, funcionario_projeto FP where FP.fk_projeto = {$id_projeto} and FP.fk_funcionario = f.id_funcionario;";
+    $resultado = mysqli_query($conexao, $query);
+    $colaboradores = array();
+    $colaboradores = mysqli_fetch_assoc($resultado);
+    echo $colaboradores;
+    return $colaboradores;
 }
