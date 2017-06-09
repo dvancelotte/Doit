@@ -5,10 +5,9 @@
 	verificaUsuario();
 
     if ($gerentes==NULL){
-    	echo $gerentes . 'test';
-		$gerentes = listaFuncionarioSemProjeto($conexao, "GERENTE");
-		echo $gerentes . 'test';
+    	$gerentes = listaFuncionarioSemProjeto($conexao, "GERENTE");
     }
+    
     if($colaboradores == NULL){
 		$colaboradores = listaFuncionarioSemProjeto($conexao, "COLABORADOR");
     }

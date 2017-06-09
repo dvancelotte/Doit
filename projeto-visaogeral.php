@@ -12,8 +12,8 @@ verificaUsuario();
     <div class="col-md-9 col-md-offset-2 projeto-div" id="projeto-div">
         <h1 id="h1_consulta"><?php echo htmlspecialchars($_GET['nome']) ?></h1>
         <div>
-            <button type="button" class="btn btn-success group-btn">Criar tarefa</button>
-            <button type="button" class="btn btn-info group-btn" onclick="getInformacao()">Informações do projeto</a></button>
+            <button type="button" class="btn btn-success group-btn" onclick="incluirTarefa(<?=$id_projeto?>)">Criar Tarefa</button>
+            <button type="button" class="btn btn-info group-btn">Informações do projeto</button>
         </div>
         <div id="funcionario-consulta">
             <table class="table table-striped" id="tableConsulta" >
@@ -33,3 +33,14 @@ verificaUsuario();
 </div>
 <?php require_once("rodape.php"); 
 
+echo "<script>               
+                function incluirTarefa(id_projeto){
+                    var currentLocation = window.location.href;
+
+                    currentLocation = currentLocation.replace('projeto-visaogeral.php','tarefa-formulario.php');
+                    
+                    window.open(currentLocation,'_self');
+                }
+         
+
+</script>";?>

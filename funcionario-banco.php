@@ -118,6 +118,22 @@ function listaFuncionarioSemProjeto($conexao, $tipo_funcionario) {
     return json_encode($rows);
 }
 
+function listaFuncionarioDoProjeto($conexao, $id_projeto, $tipo_funcionario) {
+    $query = "select F.ID_FUNCIONARIO, F.NOME from funcionario f, tipo_funcionario tf, funcionario_projeto fp where tf.id_tipo_funcionario = f.fk_tipo_funcionario and fp.fk_funcionario = f.id_funcionario and fp.fk_projeto = '{$id_projeto}' and tf.descricao = '{$tipo_funcionario}' and F.nome != 'desativado';";
+
+    $resultado = mysqli_query($conexao, $query);
+    $rows = array();
+
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;
+        }
+              
+    }
+
+    return json_encode($rows);
+}
+
 function pesquisaNome($conexao, $nome) {
     $resultado = mysqli_query($conexao, "SELECT f.id_funcionario, f.nome, f.email , TF.descricao FROM funcionario f, tipo_funcionario TF WHERE TF.id_tipo_funcionario = f.fk_tipo_funcionario and f.nome like '$nome%' order by f.nome desc;");
     $rows = array();
