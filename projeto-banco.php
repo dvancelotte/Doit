@@ -76,5 +76,5 @@ function todaInformacaoProjeto($conexao, $id_projeto){
     $resultado = mysqli_query($conexao, $query);
     $projeto = array();
     $projeto = mysqli_fetch_assoc($resultado);
-    return json_encode($projeto);
+    return $projeto;
 }
