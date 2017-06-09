@@ -20,8 +20,9 @@ require_once("mostra-alerta.php"); ?>
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="funcionario-tarefas.php">Minhas tarefas</a>
-                      </li>
+                    <li><a href="funcionario-tarefas.php">Minhas tarefas</a></li>
+                    <li><a href="logout.php">Sair</a></li>
+                    <li><a href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
         </div>

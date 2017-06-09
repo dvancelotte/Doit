@@ -32,7 +32,7 @@ require_once("mostra-alerta.php"); ?>
                           <li><a href="funcionario-formulario.php">Cadastrar</a></li>
                         </ul>
                       </li>
-                    <li><a href="sobre.php">Minha conta</a></li>
+                     <li><a href="logout.php">Sair</a></li>s
                     <li><a href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
