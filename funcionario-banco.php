@@ -1,4 +1,4 @@
-    <?php
+<?php
 require_once("conecta.php");
 
 function listaFuncionario($conexao) {
@@ -42,14 +42,6 @@ function pesquisaFuncionario($conexao, $nome) {
     return json_encode($rows);
 }
 
-/*
-//Lista funcionários por nome
-function pesquisaFuncionario($conexao, $nome){
-    $query = "select * funcionario where nome like '%{$nome}%';";
-    $resultado = mysqli_query($conexao,$query);
-    return mysqli_fetch_assoc($resultado);
-    
-}*/
 
 function insereFuncionario($conexao, $nome_func, $email, $senha, $tipo_usuario) {
     $senhaMd5 = md5($senha);
@@ -104,7 +96,7 @@ function verificaFuncionarioExistente($conexao, $email) {
 // Lista todos os gerentes sem projetos associados.
 function listaFuncionarioSemProjeto($conexao, $tipo_funcionario) {
     $resultado = mysqli_query($conexao, "select F.ID_FUNCIONARIO, F.NOME from   funcionario f, tipo_funcionario tf where tf.id_tipo_funcionario = f.fk_tipo_funcionario
-        and f.id_funcionario not in (Select FK_FUNCIONARIO from funcionario_projeto)
+        and f.id_funcionario not in (Select FK_FUNCIONARIO from projeto)
         and tf.descricao = '{$tipo_funcionario}' and F.nome != 'desativado';");
     $rows = array();
 

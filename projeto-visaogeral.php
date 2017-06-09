@@ -13,7 +13,7 @@ verificaUsuario();
         <h1 id="h1_consulta"><?php echo htmlspecialchars($_GET['nome']) ?></h1>
         <div>
             <button type="button" class="btn btn-success group-btn" onclick="incluirTarefa(<?=$id_projeto?>)">Criar Tarefa</button>
-            <button type="button" class="btn btn-info group-btn">Informações do projeto</button>
+            <button type="button" class="btn btn-info group-btn" onclick="getInformacao()">Informações do projeto</button>
         </div>
         <div id="funcionario-consulta">
             <table class="table table-striped" id="tableConsulta" >
@@ -31,7 +31,16 @@ verificaUsuario();
         </div>
     </div>
 </div>
-<?php require_once("rodape.php"); 
+<?php require_once("rodape.php");
+
+echo "<script>
+        function getInformacao(){
+            var currentLocation = window.location.href;
+            currentLocation = currentLocation.replace('projeto-visaogeral.php','projeto-informacao.php');
+            window.open(currentLocation,'_self');
+        }
+      </script>"
+?>
 
 echo "<script>               
                 function incluirTarefa(id_projeto){

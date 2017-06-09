@@ -71,11 +71,33 @@ function pesquisaNomeProjeto($conexao, $nome) {
     return json_encode($rows);
 }
 
-function todaInformacaoProjeto($id_projeto){
-    $query = "";
-    $resultado = mysqli_query($query);
-    $projeto = array($resultado);
-    echo $resultado;
-    return mysqli_fetch_assoc($projeto);
+function todaInformacaoProjeto($conexao, $id_projeto){
+    $query = "select nome, descricao, gerente from projeto where id_projeto = {$id_projeto};";
     
+    $resultado = mysqli_query($conexao, $query);
+    $projeto = array();
+    $projeto = mysqli_fetch_assoc($resultado);
+    return $projeto;
+}
+
+function gerenteDoProjeto($conexao, $id_projeto){
+    $query = "select f.nome from projeto p, funcionario f where id_projeto = {$id_projeto} and p.GERENTE = f.ID_FUNCIONARIO;";
+    $resultado = mysqli_query($conexao, $query);
+
+    return mysqli_fetch_assoc($resultado);
+}
+
+function colaboradoresPorProjeto($conexao, $id_projeto){
+    $query = "select f.nome from funcionario f, funcionario_projeto FP where FP.fk_projeto = {$id_projeto} and FP.fk_funcionario = f.id_funcionario;";
+    $resultado = mysqli_query($conexao, $query);
+    $colaboradores = array();
+    
+    if($colaboradores){
+        while($row = mysqli_fetch_assoc($colaboradores)) {
+            $colaboradores[] = $row;        
+        }
+              
+    }
+    return json_encode($colaboradores);
+
 }

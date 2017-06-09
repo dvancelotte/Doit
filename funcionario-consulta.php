@@ -57,7 +57,7 @@ echo "<script>consulta = $funcionario ;
                     tipousuario.innerHTML  = item.descricao;
                     botaoAlterar.innerHTML = '<button id=item.id_funcionario onclick=\"alterarFuncionario('+item.id_funcionario+', '+item.id_tipo_funcionario+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
                     
-                    botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoRemover.innerHTML = '<button id=item.id_funcionario onclick=\"removerFuncionario('+item.id_funcionario+');\"><span class=\"glyphicon glyphicon-trash\"></span><i class=\"fa fa-edit\"></i></button>';
                 }}); 
                 
                 function alterarFuncionario(idfuncionario, id_tipo_funcionario){
