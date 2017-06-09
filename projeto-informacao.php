@@ -6,8 +6,6 @@ $id_projeto = $_GET['id_projeto'];
 $projeto = todaInformacaoProjeto($conexao, $id_projeto);
 $gerente = gerenteDoProjeto($conexao, $id_projeto);
 $colaboradores = colaboradoresPorProjeto($conexao, $id_projeto);
-
-
 ?>
 
 <tr>
@@ -33,8 +31,8 @@ $colaboradores = colaboradoresPorProjeto($conexao, $id_projeto);
                                $.each(combo_colaborador, function (i, item) {
                                     console.log(item.ID_FUNCIONARIO);
                                     $('#colaborador').append($('<option>', { 
-                                        value: item.ID_FUNCIONARIO,
-                                        text : item.NOME 
+                                        value: item.id_funcionario,
+                                        text : item.nome 
                                     }));
                                 }); 
                               
