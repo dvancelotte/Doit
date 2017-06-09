@@ -88,16 +88,17 @@ function gerenteDoProjeto($conexao, $id_projeto){
 }
 
 function colaboradoresPorProjeto($conexao, $id_projeto){
-    $query = "select f.nome from funcionario f, funcionario_projeto FP where FP.fk_projeto = {$id_projeto} and FP.fk_funcionario = f.id_funcionario;";
+    $query = "select f.nome, f.id_funcionario from funcionario f, funcionario_projeto FP where FP.fk_projeto = $id_projeto and FP.fk_funcionario = f.id_funcionario;";
     $resultado = mysqli_query($conexao, $query);
     $colaboradores = array();
     
-    if($colaboradores){
-        while($row = mysqli_fetch_assoc($colaboradores)) {
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
             $colaboradores[] = $row;        
         }
               
     }
     return json_encode($colaboradores);
-
+    
+  
 }
