@@ -50,7 +50,12 @@ echo "<script> consulta = $tarefas;
             console.log('\"'+item.nome+'\"');
             
             titulo.innerHTML = item.TITULO;
-            responsavel.innerHTML = item.RESPONSAVEL;
+
+            if (item.RESPONSAVEL != \"desativado\"){
+                responsavel.innerHTML = item.RESPONSAVEL;   
+            } else {
+                responsavel.innerHTML = \"----\";   
+            }
 
             status.innerHTML = item.TIPO;
             botaoAlterar.innerHTML = '<button id=item.ID_TAREFA onclick=\"alterarTarefa('+item.ID_TAREFA+', '+item.ID_PROJETO+', '+item.ID_FUNCIONARIO+', '+item.ID_STATUS+');\"><span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
