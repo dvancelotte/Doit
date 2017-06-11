@@ -111,7 +111,7 @@ function listaFuncionarioSemProjeto($conexao, $tipo_funcionario) {
 }
 
 function listaFuncionarioDoProjeto($conexao, $id_projeto, $tipo_funcionario) {
-    $query = "select F.ID_FUNCIONARIO, F.NOME from funcionario f, tipo_funcionario tf, funcionario_projeto fp where tf.id_tipo_funcionario = f.fk_tipo_funcionario and fp.fk_funcionario = f.id_funcionario and fp.fk_projeto = '{$id_projeto}' and tf.descricao = '{$tipo_funcionario}' and F.nome != 'desativado';";
+    $query = "select F.ID_FUNCIONARIO, F.NOME from funcionario f, tipo_funcionario tf, equipe e where tf.id_tipo_funcionario = f.fk_tipo_funcionario and e.fk_funcionario = f.id_funcionario and e.fk_projeto = '{$id_projeto}' and tf.descricao = '{$tipo_funcionario}' and F.nome != 'desativado';";
 
     $resultado = mysqli_query($conexao, $query);
     $rows = array();

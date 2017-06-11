@@ -3,14 +3,14 @@ require_once("conecta.php");
 
 function insereProjeto($conexao, $nome_projeto, $descricao,$gerente) {
 
-    $query = "INSERT INTO projeto (nome, descricao,gerente)
+    $query = "INSERT INTO projeto (nome, descricao, fk_funcionario)
             VALUE ('{$nome_projeto}', '{$descricao}', {$gerente});";
     echo $query;
     return mysqli_query($conexao, $query);
 }
 
 function insereEquipe($conexao, $id_projeto, $id_funcionario){
-    $query = "INSERT INTO funcionario_projeto (fk_projeto, fk_funcionario)
+    $query = "INSERT INTO equipe (fk_projeto, fk_funcionario)
             VALUE ('{$id_projeto}', '{$id_funcionario}');";
     return mysqli_query($conexao, $query);    
 }
@@ -48,7 +48,7 @@ function verificaProjetoExistente($conexao, $nome_projeto){
 }
 
 function removeProjeto($conexao, $id_projeto) {
-    $queryFuncionarioProjeto = "delete from funcionario_projeto where fk_projeto = {$id_projeto};";
+    $queryFuncionarioProjeto = "delete from equipe where fk_projeto = {$id_projeto};";
     $resultado1= mysqli_query($conexao,$queryFuncionarioProjeto);
     echo $queryFuncionarioProjeto;
     if($resultado1){
@@ -72,7 +72,7 @@ function pesquisaNomeProjeto($conexao, $nome) {
 }
 
 function todaInformacaoProjeto($conexao, $id_projeto){
-    $query = "select nome, descricao, gerente from projeto where id_projeto = {$id_projeto};";
+    $query = "select nome, descricao, fk_funcionario from projeto where id_projeto = {$id_projeto};";
     
     $resultado = mysqli_query($conexao, $query);
     $projeto = array();
@@ -81,14 +81,14 @@ function todaInformacaoProjeto($conexao, $id_projeto){
 }
 
 function gerenteDoProjeto($conexao, $id_projeto){
-    $query = "select f.nome from projeto p, funcionario f where id_projeto = {$id_projeto} and p.GERENTE = f.ID_FUNCIONARIO;";
+    $query = "select f.nome from projeto p, funcionario f where id_projeto = {$id_projeto} and p.gerente = f.ID_FUNCIONARIO;";
     $resultado = mysqli_query($conexao, $query);
 
     return mysqli_fetch_assoc($resultado);
 }
 
 function colaboradoresPorProjeto($conexao, $id_projeto){
-    $query = "select f.nome, f.id_funcionario from funcionario f, funcionario_projeto FP where FP.fk_projeto = $id_projeto and FP.fk_funcionario = f.id_funcionario;";
+    $query = "select f.nome, f.id_funcionario from funcionario f, equipe e where e.fk_projeto = $id_projeto and e.fk_funcionario = f.id_funcionario;";
     $resultado = mysqli_query($conexao, $query);
     $colaboradores = array();
     

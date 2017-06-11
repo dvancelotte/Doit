@@ -29,7 +29,8 @@ else{
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 A tarefa <strong><?= $titulo; ?></strong> , foi adicionada no sistema!
             </div>
-            <?php include("projeto-visaogeral.php"); ?>
+
+            <?php header('Location: /doit/projeto-visaogeral.php?id_projeto='. $id_projeto);  ?>
     <?php } 
 
         else {
