@@ -16,7 +16,6 @@ $id_status = $_GET['id_status'];
 
   if($status == NULL){
     $status = listaStatus($conexao);
-    echo $status;
   }
 
   if ($_GET['erro'] != NULL){
@@ -44,4 +43,4 @@ $id_status = $_GET['id_status'];
     </div>
 </div>
 
-<?php require_once("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>''

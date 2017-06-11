@@ -53,13 +53,14 @@ echo "<script>consulta = $projeto ;
                     
                     nome.innerHTML = item.nome;
                     descricao.innerHTML = item.descricao;
-                    botaoVisualizar.innerHTML = '<button id=item.id_projeto onclick=\"visualizarProjeto('+item.id_projeto+',\''+item.nome+'\');\"> OLHAR <span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoVisualizar.innerHTML = '<button id=item.id_projeto onclick=\"visualizarProjeto('+item.id_projeto+',\''+item.nome+'\');\"> OLHAR <span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
                     botaoRemover.innerHTML = '<button id=item.id_projeto onclick=\"removerFuncionario('+item.id_projeto+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
                 }); 
                 
                 function visualizarProjeto(idprojeto,nome){
                      var currentLocation = window.location.href;
 
+                    currentLocation = currentLocation.replace('projeto-cadastro.php','projeto-visaogeral.php?');
                     currentLocation = currentLocation.replace('projeto-consulta-nome.php','projeto-visaogeral.php?');
                     currentLocation = currentLocation.replace('projeto-consulta.php','projeto-visaogeral.php?');
                     currentLocation = currentLocation.replace('tarefa-cadastro.php','projeto-visaogeral.php?');

@@ -29,16 +29,17 @@
                             }
                         }); 
                         </script>";
+               ?></select>
+             <?php
                 }
             ?>
-</select>       
     </td>
 </tr>
 
 <tr>
     <td>Responsável: <span>*</span></td>
     <td>
-        <select class="form-control" name="colaborador" id="colaborador" value="<?=$colaborador['colaborador']?>">
+        <select class="form-control" name="colaborador" id="colaborador">
         <option value="-1">Selecionar</option>
         <?php
                 if($id_funcionario == NULL){
@@ -46,12 +47,11 @@
                 }
                 echo "<script>combo_colaborador = $colaboradores;
                         $.each(combo_colaborador, function (i, item) {
-                            console.log(item.ID_FUNCIONARIO);
                             if (item.ID_FUNCIONARIO == ". $id_funcionario .") {
 
                                 $('#colaborador').append($('<option>', { value: item.ID_FUNCIONARIO,  text : item.NOME, selected: true }));
                             } else {
-                                $('#colaborador').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.NOME }));
+                                $('#colaborador').append($('<option>', { value: item.ID_FUNCIONARIO,  text : item.NOME }));
                             }
                         }); 
                         </script>";

@@ -8,11 +8,11 @@ verificaUsuario();
 $titulo = $_POST["titulo"];
 $descricao = $_POST['descricao'];
 $id_projeto = $_POST['id_projeto'];
-$id_colaborador = $_POST['colaborador'];
+$id_funcionario = $_POST['colaborador'];
 
 $status = buscaStatusTarefa($conexao);
 
-if($titulo == "" || $descricao == "" || $id_colaborador =="-1"){ ?>
+if($titulo == "" || $descricao == "" || $id_funcionario =="-1"){ ?>
     <p class="text-danger">Campos obrigatórios não foram inseridos corretamente !</p>
     <?php 
         header('Location: /doit/tarefa-formulario.php?id_projeto='. $id_projeto . '&erro=TRUE');    
@@ -24,7 +24,7 @@ if($titulo == "" || $descricao == "" || $id_colaborador =="-1"){ ?>
 else{
     if(verificaTarefaExistente($conexao, $titulo) == false){
 
-        if(insereTarefa($conexao, $titulo, $descricao, $id_projeto, $status['ID_STATUS'], $id_colaborador)) { ?>
+        if(insereTarefa($conexao, $titulo, $descricao, $id_projeto, $status['ID_STATUS'], $id_funcionario)) { ?>
             <div class="alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 A tarefa <strong><?= $titulo; ?></strong> , foi adicionada no sistema!
@@ -40,7 +40,7 @@ else{
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 O Título <?= $titulo; ?> não foi adicionado no sistema: <?= $msg ?>. Entre em contato com o administrador.
             </div>
-            <?php include("funcionario-consulta.php"); ?>
+            <?php include("projeto-visaogeral.php"); ?>
             <p class="text-danger"></p>
         <?php
         }

@@ -8,6 +8,7 @@
 	
     if($colaboradores == NULL){
 		$colaboradores = listaFuncionarioDoProjeto($conexao, $id_projeto, "COLABORADOR");
+		echo $colaboradores;
     }
 
     if ($_GET['erro'] != NULL){
@@ -21,7 +22,7 @@
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 funcionario-div">
         
-        <form action="tarefa-cadastro.php" onclick="return validar()" method="post">
+        <form action="tarefa-cadastro.php" method="post">
 		    <table class="table funcionario" id="tableFuncionario">
 		    	<input type="hidden" name="id_projeto" value="<?=$id_projeto?>" />
 		    	<tr><td colspan="2" id="title"><h1>Inclusão de tarefas</h1></td></tr>

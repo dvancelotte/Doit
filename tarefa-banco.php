@@ -5,6 +5,7 @@ require_once("conecta.php");
 function alteraTarefa($conexao, $id_tarefa, $titulo, $descricao, $id_funcionario, $id_status){
 
     $query = "UPDATE TAREFA set TITULO = '{$titulo}', DESCRICAO = '{$descricao}', FK_FUNCIONARIO = {$id_funcionario}, FK_STATUS = {$id_status} where ID_TAREFA = {$id_tarefa}; ";
+    echo $query;
     return mysqli_query($conexao, $query);
 }
 
