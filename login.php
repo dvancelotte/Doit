@@ -3,9 +3,11 @@
 
 $usuario = buscaUsuario($conexao, $_POST["email"], $_POST["senha"]);
 
+
 if($usuario == null) {
     $_SESSION["danger"] = "Usuário ou senha inválido.";
     header("Location: index.php");
+    
 } else {
     
     logaUsuario($usuario["email"],$usuario["fk_tipo_funcionario"]);

@@ -30,13 +30,14 @@
                     $id_tipo_funcionario = -1;
                 }
                 echo "<script>tipo_combo = $tipo_funcionario;
+                        console.log($tipo_funcionario);
                         $.each(tipo_combo, function (i, item) {
                             console.log(item.ID_TIPO_FUNCIONARIO);
                             if (item.ID_TIPO_FUNCIONARIO == ". $id_tipo_funcionario .") {
 
-                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO, selected: true }));
+                                $('#tipo_usuario').append($('<option>', { value: item.id_tipo_funcionario,  text : item.descricao, selected: true }));
                             } else {
-                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO }));
+                                $('#tipo_usuario').append($('<option>', { value: item.id_tipo_funcionario,  text : item.descricao }));
                             }
                         }); 
                         </script>"
