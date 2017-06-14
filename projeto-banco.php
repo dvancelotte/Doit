@@ -5,7 +5,7 @@ function insereProjeto($conexao, $nome_projeto, $descricao,$gerente) {
 
     $query = "INSERT INTO projeto (nome, descricao, fk_funcionario)
             VALUE ('{$nome_projeto}', '{$descricao}', {$gerente});";
-    echo $query;
+            
     return mysqli_query($conexao, $query);
 }
 
@@ -83,8 +83,17 @@ function todaInformacaoProjeto($conexao, $id_projeto){
 function gerenteDoProjeto($conexao, $id_projeto){
     $query = "select f.nome from projeto p, funcionario f where id_projeto = {$id_projeto} and p.gerente = f.ID_FUNCIONARIO;";
     $resultado = mysqli_query($conexao, $query);
-
-    return mysqli_fetch_assoc($resultado);
+    
+    $rows = array();
+    
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
+    }
+    
+    return $rows; 
 }
 
 function colaboradoresPorProjeto($conexao, $id_projeto){

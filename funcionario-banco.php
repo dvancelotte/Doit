@@ -16,7 +16,7 @@ function listaFuncionario($conexao) {
 }
 
 function listaTipoUsuario($conexao){
-    $resultado = mysqli_query($conexao, "SELECT id_tipo_funcionario, descricao FROM tipo_funcionario TF;");
+    $resultado = mysqli_query($conexao, "SELECT ID_TIPO_FUNCIONARIO, DESCRICAO FROM tipo_funcionario TF;");
     $rows = array();
     
     if($resultado){
@@ -80,8 +80,6 @@ function verificaFuncionarioExistente($conexao, $email) {
     $resultado = mysqli_query($conexao,$query);
     $numRegistros = mysqli_fetch_assoc($resultado);
     $count = $numRegistros['numeroRegistros'];
-    
-    echo($count);
     
     if($count > 0){
         return true; //existe funcionario

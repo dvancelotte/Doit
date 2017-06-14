@@ -2,8 +2,12 @@
       require_once("logica-usuario.php"); ?>
 
 
-<?php if(usuarioEstaLogado()) { ?>
-    <p class="text-success">Você está logado como <?= usuarioLogado() ?>. <a href="logout.php">Deslogar</a></p>
+<?php if(usuarioEstaLogado()) { 
+    if($_SESSION["usuario_tipo"] != 3)
+        header("Location: projeto-consulta.php");
+    else
+        header("Location: funcionario-tarefas.php");
+    ?>
 <?php } else { ?>
   
     <div class="col-md-5 col-md-offset-4 login">

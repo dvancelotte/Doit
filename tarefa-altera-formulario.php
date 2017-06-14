@@ -3,6 +3,7 @@
       require_once("funcionario-banco.php");
       require_once("tarefa-banco.php");
 
+error_reporting(0);
 $id_tarefa = $_GET['id_tarefa'];
 $tarefas = buscaTarefa($conexao, $id_tarefa);
 
@@ -43,4 +44,4 @@ $id_status = $_GET['id_status'];
     </div>
 </div>
 
-<?php require_once("rodape.php"); ?>''
+<?php require_once("rodape.php"); ?>

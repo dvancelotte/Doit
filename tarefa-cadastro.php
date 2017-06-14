@@ -15,7 +15,7 @@ $status = buscaStatusTarefa($conexao);
 if($titulo == "" || $descricao == "" || $id_funcionario =="-1"){ ?>
     <p class="text-danger">Campos obrigatórios não foram inseridos corretamente !</p>
     <?php 
-        header('Location: /doit/tarefa-formulario.php?id_projeto='. $id_projeto . '&erro=TRUE');    
+        header('Location: tarefa-formulario.php?id_projeto='. $id_projeto . '&erro=TRUE');    
     ?>
 
 <?php
@@ -30,7 +30,7 @@ else{
                 A tarefa <strong><?= $titulo; ?></strong> , foi adicionada no sistema!
             </div>
 
-            <?php header('Location: /doit/projeto-visaogeral.php?id_projeto='. $id_projeto);  ?>
+            <?php header('Location: projeto-visaogeral.php?id_projeto='. $id_projeto);  ?>
     <?php } 
 
         else {
@@ -40,7 +40,7 @@ else{
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 O Título <?= $titulo; ?> não foi adicionado no sistema: <?= $msg ?>. Entre em contato com o administrador.
             </div>
-            <?php include("projeto-visaogeral.php"); ?>
+            <?php include("projeto-consulta.php"); ?>
             <p class="text-danger"></p>
         <?php
         }

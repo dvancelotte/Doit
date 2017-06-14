@@ -53,8 +53,8 @@ echo "<script>consulta = $projeto ;
                     
                     nome.innerHTML = item.nome;
                     descricao.innerHTML = item.descricao;
-                    botaoVisualizar.innerHTML = '<button id=item.id_projeto onclick=\"visualizarProjeto('+item.id_projeto+',\''+item.nome+'\');\"> OLHAR <span class=\"glyphicon glyphicon-edit\"></span><i class=\"fa fa-edit\"></i></button>';
-                    botaoRemover.innerHTML = '<button id=item.id_projeto onclick=\"removerFuncionario('+item.id_projeto+');\"><span class=\"glyphicon glyphicon-erase\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoVisualizar.innerHTML = '<button id=item.id_projeto onclick=\"visualizarProjeto('+item.id_projeto+',\''+item.nome+'\');\">  <span class=\"glyphicon glyphicon-eye-open\"></span><i class=\"fa fa-edit\"></i></button>';
+                    botaoRemover.innerHTML = '<button id=item.id_projeto onclick=\"removerFuncionario('+item.id_projeto+');\"><span class=\"glyphicon glyphicon-trash\"></span><i class=\"fa fa-edit\"></i></button>';
                 }); 
                 
                 function visualizarProjeto(idprojeto,nome){

@@ -35,9 +35,9 @@
                             console.log(item.ID_TIPO_FUNCIONARIO);
                             if (item.ID_TIPO_FUNCIONARIO == ". $id_tipo_funcionario .") {
 
-                                $('#tipo_usuario').append($('<option>', { value: item.id_tipo_funcionario,  text : item.descricao, selected: true }));
+                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO, selected: true }));
                             } else {
-                                $('#tipo_usuario').append($('<option>', { value: item.id_tipo_funcionario,  text : item.descricao }));
+                                $('#tipo_usuario').append($('<option>', { value: item.ID_TIPO_FUNCIONARIO,  text : item.DESCRICAO }));
                             }
                         }); 
                         </script>"

@@ -11,11 +11,11 @@
     <td>
         <?php
                 if($id_status == NULL){
-                    ?><b>NOVO</b>
+        ?><b>NOVO</b>
             <?php
                 } else {
-                ?>
-                <select class="form-control" name="status" id="status" value="<?=$status['TIPO']?>">
+            ?>
+                <select class="form-control" name="status" id="status" value="<?=$status['id_status']?>">
                 <option value="-1">Selecionar</option>
             <?php
                 echo "<script>combo_status = $status;
@@ -29,7 +29,8 @@
                             }
                         }); 
                         </script>";
-               ?></select>
+               ?>
+               </select>
              <?php
                 }
             ?>
@@ -46,6 +47,8 @@
                     $id_funcionario = -1;
                 }
                 echo "<script>combo_colaborador = $colaboradores;
+                        console.log('teste');
+                        console.log(combo_colaborador);
                         $.each(combo_colaborador, function (i, item) {
                             if (item.ID_FUNCIONARIO == ". $id_funcionario .") {
 
@@ -56,6 +59,6 @@
                         }); 
                         </script>";
             ?>
-</select>       
+        </select>       
     </td>
 </tr>

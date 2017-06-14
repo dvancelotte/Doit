@@ -10,7 +10,8 @@ $email = $_POST["email"];
 $tipo_usuario = $_POST['tipo_usuario'];
 
 if(alteraFuncionario($conexao, $id_funcionario, $nome_func, $email, $senha, $tipo_usuario)) { ?>
-    <p class="text-success">O cadastro do funcionário <?= $nome; ?> foi alterado com sucesso!</p>
+   <?php header("Location: funcionario-consulta.php?alterado=1"); ?>
+
 <?php } else {
     $msg = mysqli_error($conexao);
 ?>

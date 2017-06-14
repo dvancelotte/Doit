@@ -8,7 +8,6 @@
 	
     if($colaboradores == NULL){
 		$colaboradores = listaFuncionarioDoProjeto($conexao, $id_projeto, "COLABORADOR");
-		echo $colaboradores;
     }
 
     if ($_GET['erro'] != NULL){
