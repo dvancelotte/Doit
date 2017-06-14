@@ -25,7 +25,6 @@ function todaInformacaoTarefa($conexao, $id_tarefa){
                     AND T.ID_TAREFA = 1;";
                     
     $resultado = mysqli_query($conexao, $query);
-    echo $query;    
     return mysqli_fetch_assoc($resultado);
     
 }

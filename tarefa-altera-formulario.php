@@ -46,7 +46,12 @@ $id_status = $_GET['id_status'];
                 <?php include("tarefa-formulario-base.php"); ?>
 
                 <tr>
-                    <td><button class="btn btn-primary" type="submit">Alterar</button></td>
+                    <td></td>
+                    	
+                    <td align="right">
+                      <button class="btn btn btn-danger" type="submit" onclick="window.history.back()">Voltar</button>
+                      <button class="btn btn-primary" type="submit">Alterar</button>
+                    </td>
                 </tr>
               </table>
         </form>

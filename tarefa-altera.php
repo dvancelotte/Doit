@@ -19,10 +19,12 @@ $id_funcionario = $_POST['colaborador'];
 
 if(alteraTarefa($conexao, $id_tarefa, $titulo, $descricao, $id_funcionario, $id_status)) { ?>
 
-<div class="alert alert-success alert-dismissable">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-  	O cadastro da tarefa <?= $titulo; ?> foi alterado com sucesso!
-</div>
+    <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+      	O cadastro da tarefa <?= $titulo; ?> foi alterado com sucesso!
+    </div>
+    <button class="btn btn btn-danger" type="submit" onclick="window.history.back()">Voltar</button>
+
             
 <?php } else {
     $msg = mysqli_error($conexao);

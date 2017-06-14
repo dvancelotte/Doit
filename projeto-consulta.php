@@ -39,7 +39,6 @@ if(!$projeto)
 
 echo "<script>consulta = $projeto ;
                var tabela = document.getElementById('tabela-consulta');
-               console.log(consulta);
                $.each(consulta, function (i, item) {
                   
                     
@@ -48,8 +47,6 @@ echo "<script>consulta = $projeto ;
                     var descricao = linha.insertCell(1);
                     var botaoVisualizar = linha.insertCell(2);
                     var botaoRemover = linha.insertCell(3);
-                    
-                    console.log('\"'+item.nome+'\"');
                     
                     nome.innerHTML = item.nome;
                     descricao.innerHTML = item.descricao;

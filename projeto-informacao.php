@@ -6,6 +6,7 @@ $id_projeto = $_GET['id_projeto'];
 $projeto = todaInformacaoProjeto($conexao, $id_projeto);
 $gerente = gerenteDoProjeto($conexao, $id_projeto);
 $colaboradores = colaboradoresPorProjeto($conexao, $id_projeto);
+echo $gerente/
 ?>
 
 <tr>
