@@ -15,6 +15,20 @@ function listaFuncionario($conexao) {
     return json_encode($rows);
 }
 
+function funcionarioTarefa($conexao, $email) {
+    $query = "SELECT P.NOME AS PROJETO, P.ID_PROJETO, T.TITULO, T.ID_TAREFA, S.ID_STATUS, S.TIPO AS STATUS, F.ID_FUNCIONARIO FROM TAREFA T, PROJETO P, FUNCIONARIO F, STATUS S WHERE F.EMAIL = '{$email}' AND T.FK_STATUS = S.ID_STATUS AND T.FK_PROJETO = P.ID_PROJETO AND T.FK_FUNCIONARIO = F.ID_FUNCIONARIO;";
+    $resultado = mysqli_query($conexao, $query);
+    $rows = array();
+    
+    if($resultado){
+        while($row = mysqli_fetch_assoc($resultado)) {
+            $rows[] = $row;        
+        }
+              
+    }
+    return json_encode($rows);
+}
+
 function listaTipoUsuario($conexao){
     $resultado = mysqli_query($conexao, "SELECT ID_TIPO_FUNCIONARIO, DESCRICAO FROM tipo_funcionario TF;");
     $rows = array();
@@ -136,6 +150,4 @@ function pesquisaNome($conexao, $nome) {
     }
     return json_encode($rows);
 }
-
-
 

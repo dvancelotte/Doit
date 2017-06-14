@@ -9,6 +9,27 @@ function alteraTarefa($conexao, $id_tarefa, $titulo, $descricao, $id_funcionario
     return mysqli_query($conexao, $query);
 }
 
+function todaInformacaoTarefa($conexao, $id_tarefa){
+    
+    $query = "SELECT 
+                     P.NOME AS PROJETO, P.DESCRICAO AS DESC_PROJETO, 
+                     T.TITULO, T.DESCRICAO AS DESC_TAREFA, 
+                     S.TIPO AS STATUS, 
+                     F.NOME AS FUNCIONARIO
+                FROM 
+                     TAREFA T, PROJETO P, FUNCIONARIO F, STATUS S 
+               WHERE		
+                    	T.FK_STATUS = S.ID_STATUS 
+                    AND T.FK_PROJETO = P.ID_PROJETO	
+                    AND T.FK_FUNCIONARIO = F.ID_FUNCIONARIO
+                    AND T.ID_TAREFA = 1;";
+                    
+    $resultado = mysqli_query($conexao, $query);
+    echo $query;    
+    return mysqli_fetch_assoc($resultado);
+    
+}
+
 function buscaStatusTarefa($conexao){
 
     $query = "SELECT ID_STATUS FROM STATUS WHERE  TIPO = 'NOVO'; ";

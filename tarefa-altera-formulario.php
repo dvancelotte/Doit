@@ -1,7 +1,16 @@
-<?php require_once("cabecalho.php");
-      require_once("banco-consulta-sql.php");
-      require_once("funcionario-banco.php");
-      require_once("tarefa-banco.php");
+<?php 
+
+require_once("logica-usuario.php");
+
+if($_SESSION["usuario_tipo"]!=3){
+    require_once("cabecalho.php");
+} else{
+    require_once("cabecalho-colaborador.php");
+}
+
+require_once("banco-consulta-sql.php");
+require_once("funcionario-banco.php");
+require_once("tarefa-banco.php");
 
 error_reporting(0);
 $id_tarefa = $_GET['id_tarefa'];

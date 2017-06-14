@@ -3,11 +3,29 @@
       require_once("logica-usuario.php");
 
 verificaUsuario();
+$altera = $_GET["alterado"];
 
-
-if(!$funcionario)
+if(!$funcionario){
     $funcionario = listaFuncionario($conexao, "funcionario");
+}
+
+if($altera=='1'){
+    ?>
+    <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                 Alteração realizada com sucesso.
+    </div>
+<?php
+    
+}
+
+if($altera=='0'){
+    
+}
+    
+
 ?>
+
 
 <div class="contanier-fluid">
     <div class="col-md-9 col-md-offset-2 funcionario-consulta-div" id="funcionario-consulta-div">
